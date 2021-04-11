@@ -1,28 +1,13 @@
-package com.company.model;
+package com.company.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+public class Supplier_dto implements Serializable {
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-@Entity
-@Data
-@AllArgsConstructor
-public class Supplier implements Serializable {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idSupplier;
 
-	@Column(columnDefinition = "nvarchar(255)")
 	private String fullNameSupplier;
 
-	@Column(columnDefinition = "nvarchar(255)")
 	private String address;
 
 	public Integer getIdSupplier() {
@@ -48,5 +33,6 @@ public class Supplier implements Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
 
 }

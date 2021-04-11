@@ -22,4 +22,20 @@ public class Category implements Serializable {
 	@Column(columnDefinition = "nvarchar(255)")
 	private String fullNameCategory;
 
+	public String getFullNameCategory() {
+		return fullNameCategory;
+	}
+
+	public void setFullNameCategory(String fullNameCategory) {
+		this.fullNameCategory = fullNameCategory;
+	}
+
+	public Integer getIdCategory() {
+		return idCategory;
+	}
+
+	public void setIdCategory(Integer idCategory) {
+		this.idCategory = idCategory;
+	}
+
 }

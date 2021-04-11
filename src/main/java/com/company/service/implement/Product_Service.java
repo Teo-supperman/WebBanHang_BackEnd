@@ -2,11 +2,16 @@ package com.company.service.implement;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.company.Repository.Product_Repository;
 import com.company.model.Product;
+
 @Service
 public class Product_Service implements com.company.service.Product_Service {
+	@Autowired
+	private Product_Repository product_Repository;
 
 	@Override
 	public Product add(Product product) {
@@ -33,9 +38,9 @@ public class Product_Service implements com.company.service.Product_Service {
 	}
 
 	@Override
-	public List<Product> findAllById(int id) {
+	public Product findAllById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return product_Repository.getById(id);
 	}
 
 }

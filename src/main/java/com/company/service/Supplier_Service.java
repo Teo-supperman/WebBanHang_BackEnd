@@ -2,16 +2,16 @@ package com.company.service;
 
 import java.util.List;
 
-import com.company.model.Supplier;
+import org.springframework.data.domain.Pageable;
+
+import com.company.dto.Supplier_dto;
 
 public interface Supplier_Service {
-	public Supplier add(Supplier supplier);
+	public Supplier_dto save(Supplier_dto supplier_dto);// save and update
 
-	public Supplier update(Supplier supplier);
+	public void delete(Integer[] id);
 
-	public Supplier remove(Supplier supplier);
+	public Supplier_dto findOneById(int id);
 
-	public List<Supplier> findAll();
-
-	public List<Supplier> findAllById(int id);
+	public List<Supplier_dto> findAll(Pageable pageable);
 }

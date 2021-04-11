@@ -13,5 +13,5 @@ public interface Product_Service {
 
 	public List<Product> findAll();
 
-	public List<Product> findAllById(int id);
+	public Product findAllById(int id);
 }

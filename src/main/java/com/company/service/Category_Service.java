@@ -2,16 +2,17 @@ package com.company.service;
 
 import java.util.List;
 
-import com.company.model.Category;
+import org.springframework.data.domain.Pageable;
+
+import com.company.dto.Category_dto;
 
 public interface Category_Service {
-	public Category add(Category category);
+	public Category_dto save(Category_dto Category_dto);// save and update
 
-	public Category update(Category category);
+	public void delete(Integer[] id);
 
-	public Category remove(Category category);
+	public Category_dto findOneById(int id);
 
-	public List<Category> findAll();
+	public List<Category_dto> findAll(Pageable pageable);
 
-	public List<Category> findAllById(int id);
 }
