@@ -23,4 +23,9 @@ public class Category_dto implements Serializable {
 		this.idCategory = idCategory;
 	}
 
+	@Override
+	public String toString() {
+		return "Category_dto [idCategory=" + idCategory + ", fullNameCategory=" + fullNameCategory + "]";
+	}
+
 }

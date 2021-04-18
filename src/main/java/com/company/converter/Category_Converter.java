@@ -10,12 +10,14 @@ import com.company.model.Category;
 public class Category_Converter {
 	public Category category(Category_dto category_dto) {
 		Category category = new Category();
+		category.setIdCategory(category_dto.getIdCategory());
 		category.setFullNameCategory(category_dto.getFullNameCategory());
 		return category;
 	}
 
 	public Category_dto category_dto(Category category) {
 		Category_dto category_dto = new Category_dto();
+		category_dto.setIdCategory(category.getIdCategory());
 		category_dto.setFullNameCategory(category.getFullNameCategory());
 		return category_dto;
 	}

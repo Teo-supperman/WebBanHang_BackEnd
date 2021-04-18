@@ -6,7 +6,7 @@ public class OrderDetails implements Serializable {
 
 	private OrderDetailsID orderDetailsID;
 
-	private Product product;
+	private Product_dto product;
 
 	private Order1 order;
 

@@ -2,25 +2,39 @@ package com.company.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-
 public class Account_dto implements Serializable {
 
-
-	private int idAccount;
-	
+	private Integer idAccount;
+	private Integer numberPhone;
 	private String password;
+
+	public int getNumberPhone() {
+		return numberPhone;
+	}
+
+	public void setNumberPhone(int numberPhone) {
+		this.numberPhone = numberPhone;
+	}
+
+	public Integer getIdAccount() {
+		return idAccount;
+	}
+
+	public void setIdAccount(Integer idAccount) {
+		this.idAccount = idAccount;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "Account_dto [idAccount=" + idAccount + ", numberPhone=" + numberPhone + ", password=" + password + "]";
+	}
 
 }
