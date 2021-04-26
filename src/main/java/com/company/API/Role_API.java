@@ -14,40 +14,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.company.dto.Category_dto;
-import com.company.service.Category_Service;
+import com.company.dto.Role_dto;
+import com.company.service.Role_Service;
 
 @RestController
-@RequestMapping("api/v1/category")
+@RequestMapping("api/v1/role")
 @CrossOrigin
-public class Category_API {
+public class Role_API {
 	@Autowired
-	private Category_Service category_Service;
+	private Role_Service role_Service;
 
 	@PostMapping("/")
-	public Category_dto createCategory(@RequestBody Category_dto category_dto) {
-		return category_Service.save(category_dto);
+	public Role_dto createRole(@RequestBody Role_dto category_dto) {
+		return role_Service.save(category_dto);
 	}
 
 	@PutMapping("/{id}")
-	public Category_dto updateCategory(@RequestBody Category_dto category_dto, @PathVariable("id") Integer id) {
-		category_dto.setIdCategory(id);
-		return category_Service.save(category_dto);
+	public Role_dto updateRole(@RequestBody Role_dto role_dto, @PathVariable("id") Integer id) {
+		role_dto.setIdRole(id);
+		return role_Service.save(role_dto);
 	}
 
 	@DeleteMapping("/")
-	public void deleteCategory(@RequestBody Integer[] id) {
-		category_Service.delete(id);
+	public void deleteRole(@RequestBody Integer[] id) {
+		role_Service.delete(id);
 	}
 
 	@GetMapping("/")
-	public List<Category_dto> category_dtos() {
-		return category_Service.findAll(PageRequest.of(0, 5));
+	public List<Role_dto> role_dtos() {
+		return role_Service.findAll(PageRequest.of(0, 5));
 	}
 
 	@GetMapping("/{id}")
-	public Category_dto findOneCategory(@RequestBody @PathVariable("id") Integer id) {
-		return category_Service.findOneById(id);
+	public Role_dto findOneRole(@RequestBody @PathVariable("id") Integer id) {
+		return role_Service.findOneById(id);
 
 	}
 }

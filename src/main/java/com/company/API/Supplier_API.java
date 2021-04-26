@@ -17,7 +17,7 @@ import com.company.dto.Supplier_dto;
 import com.company.service.Supplier_Service;
 
 @RestController
-@RequestMapping("/supplier")
+@RequestMapping("api/v1/supplier")
 public class Supplier_API {
 	@Autowired
 	private Supplier_Service supplier_Service;

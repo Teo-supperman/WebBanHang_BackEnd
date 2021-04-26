@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.company.model.User;
+import com.company.model.Account.User;
 import com.company.service.User_Service;
 @Service
 public class User_Service_Implement implements User_Service {

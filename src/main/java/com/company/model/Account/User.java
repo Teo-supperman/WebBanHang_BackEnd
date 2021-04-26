@@ -1,4 +1,4 @@
-package com.company.model;
+package com.company.model.Account;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -26,11 +26,11 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idUser;
-	
+
 	@Column(columnDefinition = "nvarchar(255)")
 	@Pattern(regexp = "^[a-zA-Z0-9].*", message = "What your name?")
 	private String fullNameUser;
-	
+
 	private LocalDate birthDay;
 	@Column(columnDefinition = "nvarchar(255)")
 	@Pattern(regexp = "^[0-9]{8,}", message = "identityCard >8")
@@ -38,13 +38,9 @@ public class User implements Serializable {
 
 	@Column(columnDefinition = "nvarchar(255)")
 	private String Address;
-	
+
 	@Column(columnDefinition = "nvarchar(255)")
 	private String status;
-	@OneToOne
-	@JoinColumn(name = "numberPhone", referencedColumnName = "idAccount", unique = true)
-	private Account account;
-	
 
 
 }

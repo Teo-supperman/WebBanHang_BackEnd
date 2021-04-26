@@ -18,7 +18,7 @@ import com.company.dto.Product_dto;
 import com.company.service.Product_Service;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("api/v1/product")
 @CrossOrigin
 public class Product_API {
 	@Autowired
@@ -49,5 +49,10 @@ public class Product_API {
 	public Product_dto findOneProduct(@RequestBody @PathVariable("id") Integer id) {
 		return product_Service.findOneById(id);
 
+	}
+
+	@GetMapping("/category/{idCategory}")
+	public List<Product_dto> product_dtos(@RequestBody @PathVariable("idCategory") Integer idCategory) {
+		return  product_Service.findByIdCategory(idCategory);
 	}
 }

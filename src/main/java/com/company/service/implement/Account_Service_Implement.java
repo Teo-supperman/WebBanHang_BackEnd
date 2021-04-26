@@ -1,18 +1,19 @@
 package com.company.service.implement;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.company.Repository.Account_Repository;
+import com.company.Repository.Role_Repository;
 import com.company.converter.Account_Converter;
+import com.company.converter.Role_Converter;
 import com.company.dto.Account_dto;
-import com.company.model.Account;
+import com.company.dto.Role_dto;
+import com.company.model.Account.Account;
+import com.company.model.Account.Role;
 import com.company.service.Account_Service;
 
 @Service
@@ -21,25 +22,46 @@ public class Account_Service_Implement implements Account_Service {
 	private Account_Repository account_Repository;
 	@Autowired
 	private Account_Converter account_Converter;
+	@Autowired
+	private Role_Service_Implement role_Service_Implement;
+	@Autowired
+	private Role_Converter role_Converter;
+
+	@Override
+	public List<Account_dto> findAll() {
+		List<Account_dto> account_dtos = new ArrayList<>();
+		List<Account> accounts = account_Repository.findAll();
+		for (Account account : accounts) {
+			Account_dto account_dto = account_Converter.account_dto(account);
+			account_dtos.add(account_dto);
+		}
+		return account_dtos;
+	}
+
 
 	@Override
 	public void delete(Integer[] id) {
+		// TODO Auto-generated method stub
 		for (Integer integer : id) {
 			account_Repository.deleteById(integer);
 		}
-
 	}
 
 	@Override
 	public Account_dto save(Account_dto account_dto) {
+		// TODO Auto-generated method stub
 		Account account = new Account();
-		if (account_dto.getIdAccount() != null) {
-			Account oldAccount = account_Repository.findByIdAccount(account_dto.getIdAccount());
-			account = account_Converter.account(oldAccount, account_dto);
+		if (account_dto.getId() != null) {
+			Account oldAccount = account_Repository.findByIdAccount(account_dto.getId());
+			account = account_Converter.account(account_dto, oldAccount);
 		} else {
+			String password = account_dto.getPassword();
+			account_dto.setPassword(password);
 			account = account_Converter.account(account_dto);
+
 		}
 		account = account_Repository.save(account);
+
 		return account_Converter.account_dto(account);
 	}
 
@@ -47,9 +69,9 @@ public class Account_Service_Implement implements Account_Service {
 	public Account_dto findOneById(Integer id) {
 		// TODO Auto-generated method stub
 		Account_dto account_dto = new Account_dto();
-		account_dto.setIdAccount(id);
-		if (account_dto.getIdAccount() != null) {
-			Account account = account_Repository.findByIdAccount(account_dto.getIdAccount());
+		account_dto.setId(id);
+		if (account_dto.getId() != null) {
+			Account account = account_Repository.findByIdAccount(account_dto.getId());
 			account_dto = account_Converter.account_dto(account);
 			return account_dto;
 		}
@@ -57,9 +79,13 @@ public class Account_Service_Implement implements Account_Service {
 	}
 
 	@Override
-	public List<Account_dto> findAll(Pageable of) {
-		List<Account_dto> account_dtos = new ArrayList<>();
-		List<Account> accounts = account_Repository.findAll(of).getContent();
+	public List<Account_dto> findByIdRole(Integer idRole) {
+		// TODO Auto-generated method stub
+		Role_dto role_dto =  new Role_dto();
+		role_dto= role_Service_Implement.findOneById(idRole);
+		List<Account_dto> account_dtos = new ArrayList<Account_dto>();
+		Role role = role_Converter.role(role_dto);
+		List<Account> accounts = account_Repository.findByRole(role);
 		for (Account account : accounts) {
 			Account_dto account_dto = account_Converter.account_dto(account);
 			account_dtos.add(account_dto);

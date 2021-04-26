@@ -1,27 +1,51 @@
-package com.company.dto;
+package com.company.model.Account;
 
-import com.company.model.Account.Role;
+import java.io.Serializable;
 
-public class Account_dto {
-	private Integer id;
-	private String numberPhone;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Entity()
+@Data
+@AllArgsConstructor
+@Table(name = "Account")
+public class Account implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idAccount;
+	private String name;
 	private String password;
-	private Role grantedAuthorities;
 	private boolean isAccountNonExpired;
 	private boolean isAccountNonLocked;
 	private boolean isCredentialsNonExpired;
 	private boolean isEnabled;
 
-	public Integer getId() {
-		return id;
+	@ManyToOne
+	@JoinColumn(name = "idRole")
+	private Role role;
+
+	public Integer getIdAccount() {
+		return idAccount;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdAccount(Integer idAccount) {
+		this.idAccount = idAccount;
 	}
 
-	public String getNumberPhone() {
-		return numberPhone;
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPassword() {
@@ -30,14 +54,6 @@ public class Account_dto {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public Role getGrantedAuthorities() {
-		return grantedAuthorities;
-	}
-
-	public void setGrantedAuthorities(Role grantedAuthorities) {
-		this.grantedAuthorities = grantedAuthorities;
 	}
 
 	public boolean isAccountNonExpired() {
@@ -72,16 +88,12 @@ public class Account_dto {
 		this.isEnabled = isEnabled;
 	}
 
-	public void setNumberPhone(String numberPhone) {
-		this.numberPhone = numberPhone;
+	public Role getRole() {
+		return role;
 	}
 
-	@Override
-	public String toString() {
-		return "Account_dto [numberPhone=" + numberPhone + ", password=" + password + ", grantedAuthorities="
-				+ grantedAuthorities + ", isAccountNonExpired=" + isAccountNonExpired + ", isAccountNonLocked="
-				+ isAccountNonLocked + ", isCredentialsNonExpired=" + isCredentialsNonExpired + ", isEnabled="
-				+ isEnabled + "]";
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 }

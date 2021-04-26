@@ -3,27 +3,42 @@ package com.company.converter;
 import org.springframework.stereotype.Component;
 
 import com.company.dto.Account_dto;
-import com.company.model.Account;
+import com.company.model.Account.Account;
 
 @Component
 public class Account_Converter {
 	public Account account(Account_dto account_dto) {
 		Account account = new Account();
-		account.setNumberPhone(account_dto.getNumberPhone());
+		account.setName(account_dto.getNumberPhone());
 		account.setPassword(account_dto.getPassword());
+		account.setRole(account_dto.getGrantedAuthorities());
+		account.setAccountNonExpired(account_dto.isAccountNonExpired());
+		account.setAccountNonLocked(account_dto.isAccountNonLocked());
+		account.setCredentialsNonExpired(account_dto.isCredentialsNonExpired());
+		account.setEnabled(account_dto.isEnabled());
 		return account;
 	}
 
 	public Account_dto account_dto(Account account) {
 		Account_dto account_dto = new Account_dto();
-		account_dto.setNumberPhone(account.getNumberPhone());
+		account_dto.setNumberPhone(account.getName());
 		account_dto.setPassword(account.getPassword());
+		account_dto.setGrantedAuthorities(account.getRole());
+		account_dto.setAccountNonExpired(account.isAccountNonExpired());
+		account_dto.setAccountNonLocked(account.isAccountNonLocked());
+		account_dto.setCredentialsNonExpired(account.isCredentialsNonExpired());
+		account_dto.setEnabled(account.isEnabled());
 		return account_dto;
 	}
 
-	public Account account(Account account, Account_dto account_dto) {
-		account.setNumberPhone(account_dto.getNumberPhone());
+	public Account account(Account_dto account_dto,Account account) {
+		account.setName(account_dto.getNumberPhone());
 		account.setPassword(account_dto.getPassword());
+		account.setRole(account_dto.getGrantedAuthorities());
+		account.setAccountNonExpired(account_dto.isAccountNonExpired());
+		account.setAccountNonLocked(account_dto.isAccountNonLocked());
+		account.setCredentialsNonExpired(account_dto.isCredentialsNonExpired());
+		account.setEnabled(account_dto.isEnabled());
 		return account;
 	}
 
