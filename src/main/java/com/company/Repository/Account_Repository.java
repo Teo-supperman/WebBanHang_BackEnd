@@ -10,7 +10,7 @@ import com.company.model.Account.Role;
 public interface Account_Repository extends JpaRepository<Account, Integer> {
 
 	public Account findByIdAccount(Integer idAccount);
-
+	public Account findByName(String name);
 	public List<Account> findByRole(Role role);
 
 }

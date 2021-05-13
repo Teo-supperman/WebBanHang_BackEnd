@@ -42,7 +42,7 @@ public class Category_API {
 
 	@GetMapping("/")
 	public List<Category_dto> category_dtos() {
-		return category_Service.findAll(PageRequest.of(0, 5));
+		return category_Service.findAll();
 	}
 
 	@GetMapping("/{id}")

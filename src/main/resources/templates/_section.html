@@ -1,0 +1,15 @@
+<div th:fragment="section">
+	<div class="section_sidebar_slider">
+		<div class="container">
+			<div class="row">
+				<div class="dqdt-sidebar sidebar left-content col-lg-3 col-md-12 hidden-sm hidden-xs">
+					<div th:insert="_ListCategory :: list_category"></div>
+				</div>
+				<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+					<div th:insert="_home_slider :: home_slider"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

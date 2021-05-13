@@ -15,6 +15,6 @@ public interface Product_Service {
 
 	public Product_dto findByIdSupplier(int id);
 
-	public List<Product_dto> findAll(Pageable pageable);
+	public List<Product_dto> findAll();
 	public List<Product_dto> findByIdCategory(Integer idCategory);
 }

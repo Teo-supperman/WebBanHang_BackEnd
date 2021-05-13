@@ -1,0 +1,54 @@
+<div th:fragment="menu">
+	<div class="wrap_main d-none d-lg-block d-xl-block">
+		<div class="bg-header-nav">
+			<div class="row">
+				<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+					<nav class="header-nav">
+						<ul class="item_big">
+							<li class="nav-item  active "><a class="a-img"
+								href="trangchu" title="Trang chủ"> <span>Home page</span>
+							</a></li>
+
+							<li class="nav-item "><a class="a-img" href="tatcasanpham"
+								title="Sản phẩm"> <span>Product</span> <i
+									class="fa fa-angle-down"></i>
+							</a>
+								<ul class="item_small">
+									<li><a href="aothun" title="Áo Thun">Áo Thun</a></li>
+									<li><a href="aophong" title="Áo phông">Áo phông</a></li>
+									<li><a href="aosomi" title="Áo sơ mi">Áo sơ mi</a></li>
+									<li><a href="aococtay" title="Áo cộc tay">Áo cộc tay</a></li>
+									<li><a href="quanjean" title="Áo cộc tay">Quần Jean
+											Nam</a></li>
+								</ul></li>
+
+
+							<li class="nav-item "><a class="a-img" href="login"
+								title="Liên hệ"> <span>Login</span>
+							</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+					<div class="serachpc">
+						<div class="searchform">
+							<form action="timkiem" method="get"
+								class="input-group search-bar" role="search">
+								<input type="text" name="timkiem" value="" autocomplete="off"
+									placeholder="Search..."
+									class="input-group-field auto-search visible_index">
+								<button type="submit"
+									class="visible_index btn icon-fallback-text">
+									<i class="fa fa-search"></i>
+								</button>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+

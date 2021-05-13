@@ -1,0 +1,103 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Shop Homepage</title>
+
+<!-- Bootstrap core CSS -->
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	type="text/css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link th:href="@{css/shop-homepage.css}" type="text/css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Custom styles for this template -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: rgb(240, 240, 240)">
+	<!-- Page Content -->
+	<header class="header">
+		<div th:insert="_header :: header"></div>
+	</header>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-lg-12">
+				<div id="carouselExampleIndicators" class="carousel slide my-4"
+					data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselExampleIndicators" data-slide-to="0"
+							class="active"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						<div class="carousel-item active">
+							<img class="d-block img-fluid"
+								src="img/pexels-charles-parker-5847351-scaled-1110x350.jpg"
+								alt="First slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block img-fluid"
+								src="img/pexels-charles-parker-5847351-scaled-1110x350.jpg"
+								alt="Second slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block img-fluid"
+								src="img/pexels-charles-parker-5847351-scaled-1110x350.jpg"
+								alt="Third slide">
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators"
+						role="button" data-slide="prev"> <span
+						class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+						class="sr-only">Previous</span>
+					</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+						role="button" data-slide="next"> <span
+						class="carousel-control-next-icon" aria-hidden="true"></span> <span
+						class="sr-only">Next</span>
+					</a>
+				</div>
+
+				<div th:insert="_header :: header"></div>
+
+			</div>
+
+
+		</div>
+		<!-- /.row -->
+
+	</div>
+
+	<!-- /.container -->
+
+	<footer class="footer">
+		<div th:insert="_footer :: footer"></div>
+		<!-- Main JS -->
+		<script th:src="@{/js/main.js}"></script>
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.company.dto.Account_dto;
 
-public interface Account_Service{
+public interface Account_Service {
 
 	public List<Account_dto> findAll();
 
@@ -15,5 +15,7 @@ public interface Account_Service{
 	public Account_dto findOneById(Integer id);
 
 	public List<Account_dto> findByIdRole(Integer idRole);
+
+	Account_dto findOneByName(String name);
 
 }

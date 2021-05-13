@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.company.Repository.Account_Repository;
-import com.company.Repository.Role_Repository;
 import com.company.converter.Account_Converter;
 import com.company.converter.Role_Converter;
 import com.company.dto.Account_dto;
@@ -26,6 +25,7 @@ public class Account_Service_Implement implements Account_Service {
 	private Role_Service_Implement role_Service_Implement;
 	@Autowired
 	private Role_Converter role_Converter;
+	
 
 	@Override
 	public List<Account_dto> findAll() {
@@ -38,7 +38,12 @@ public class Account_Service_Implement implements Account_Service {
 		return account_dtos;
 	}
 
-
+	/*
+	 * @Override public UserDetails loadUserByUsername(String username) throws
+	 * UsernameNotFoundException { return null;
+	 * 
+	 * }
+	 */
 	@Override
 	public void delete(Integer[] id) {
 		// TODO Auto-generated method stub
@@ -49,20 +54,8 @@ public class Account_Service_Implement implements Account_Service {
 
 	@Override
 	public Account_dto save(Account_dto account_dto) {
-		// TODO Auto-generated method stub
-		Account account = new Account();
-		if (account_dto.getId() != null) {
-			Account oldAccount = account_Repository.findByIdAccount(account_dto.getId());
-			account = account_Converter.account(account_dto, oldAccount);
-		} else {
-			String password = account_dto.getPassword();
-			account_dto.setPassword(password);
-			account = account_Converter.account(account_dto);
-
-		}
-		account = account_Repository.save(account);
-
-		return account_Converter.account_dto(account);
+		return account_dto;
+		
 	}
 
 	@Override
@@ -79,10 +72,23 @@ public class Account_Service_Implement implements Account_Service {
 	}
 
 	@Override
+	public Account_dto findOneByName(String name) {
+		// TODO Auto-generated method stub
+		Account_dto account_dto = new Account_dto();
+		account_dto.setName(name);
+		if (account_dto.getName() != null) {
+			Account account = account_Repository.findByName(account_dto.getName());
+			account_dto = account_Converter.account_dto(account);
+			return account_dto;
+		}
+		return null;
+	}
+
+	@Override
 	public List<Account_dto> findByIdRole(Integer idRole) {
 		// TODO Auto-generated method stub
-		Role_dto role_dto =  new Role_dto();
-		role_dto= role_Service_Implement.findOneById(idRole);
+		Role_dto role_dto = new Role_dto();
+		role_dto = role_Service_Implement.findOneById(idRole);
 		List<Account_dto> account_dtos = new ArrayList<Account_dto>();
 		Role role = role_Converter.role(role_dto);
 		List<Account> accounts = account_Repository.findByRole(role);
@@ -92,5 +98,6 @@ public class Account_Service_Implement implements Account_Service {
 		}
 		return account_dtos;
 	}
+
 
 }

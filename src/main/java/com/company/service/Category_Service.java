@@ -13,6 +13,6 @@ public interface Category_Service {
 
 	public Category_dto findOneById(int id);
 
-	public List<Category_dto> findAll(Pageable pageable);
+	public List<Category_dto> findAll();
 
 }

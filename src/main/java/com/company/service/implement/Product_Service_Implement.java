@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.company.Repository.Product_Repository;
@@ -71,10 +70,10 @@ public class Product_Service_Implement implements Product_Service {
 	}
 
 	@Override
-	public List<Product_dto> findAll(Pageable pageable) {
+	public List<Product_dto> findAll() {
 		// TODO Auto-generated method stub
 		List<Product_dto> product_dtos = new ArrayList<>();
-		List<Product> products = product_Repository.findAll(pageable).getContent();
+		List<Product> products = product_Repository.findAll();
 		for (Product product : products) {
 			Product_dto product_dto = product_Converter.product_dto(product);
 			product_dtos.add(product_dto);

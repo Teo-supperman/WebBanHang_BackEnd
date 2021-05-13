@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.company.Repository.Category_Repository;
@@ -55,9 +54,9 @@ public class Category_Service_Implement implements Category_Service {
 	}
 
 	@Override
-	public List<Category_dto> findAll(Pageable pageable) {
+	public List<Category_dto> findAll() {
 		List<Category_dto> category_dtos = new ArrayList<>();
-		List<Category> categories = category_Repository.findAll(pageable).getContent();
+		List<Category> categories = category_Repository.findAll();
 		for (Category category : categories) {
 			Category_dto category_dto = category_Converter.category_dto(category);
 			category_dtos.add(category_dto);
